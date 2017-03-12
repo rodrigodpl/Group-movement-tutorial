@@ -1,4 +1,10 @@
-## Welcome to GitHub Pages
+# Group Movement Tutorial
+
+When in a videogame a single unit must travel from point A to point B, we should only need a pathfinding algorithm (A\*, djikstra) properly coded to obtain a satisfactory result. That solution is useful, but limited. 
+
+What would happen if we face a situation where a tile that in the moment the unit called the pathfinding method was walkable, but is not anymore where the unit is reaching it?
+
+That could happen if a new building have just been placed in the map, or a troop has moved to a point in the path. The code as it is would let the unit travel across the colliding element as if it just wasn't there.
 
 You can use the [editor on GitHub](https://github.com/rodrigodpl/Group-movement-tutorial/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
