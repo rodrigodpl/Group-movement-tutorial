@@ -89,7 +89,7 @@ This queue will be coded as a rolling list, this means, once the first call is m
 
 Each node of the queue should contain the position and direction of the troop in that moment. Also, it should have an assigned collider so we can predict collisions in future updates.
 
-# Fixed time step and interpolation
+### Fixed time step and interpolation
 
 If we need to simulate a series of positions in one single call, we are going to need fixed time step for those calculations. However, even by carefully choosing the interval this could lead to problems in the future.
 
@@ -99,11 +99,42 @@ The interpolation system can be used to avoid as well the situation where a unit
 
 ## Coordinating units
 
+With the new predicting system implemented, the pathfinding algorithm can be recoded to make the unit circle a collision rather than just stopping. Let's put a practical scenario to be more visual.
+
+We are unit A, travelling to East Fort, when we find a cluster of allied troops heading to West Fort. We don't want to attack them, just to surround them and continue our way. How do we do?
+
+Our prediction system will be checking collisions in the last added prediction, so we will notice the collision a few frames before happening. Our goal now is to change the path of unit A so it avoids the coming cluster of units.
+
+We need to try to change as less as possible the original path, which should be the shortest way to our destination. Therefore, we want to create a new path that links to the initial one. This can be done with waypoints, a queue of paths instead of a single one. 
+
+A solution, but not the only, could be:
+```
+Path* Col_Pathfinder(Unit* unit, int frames_until_col, iPoint dest){   // the destination is the same than in previous path
+    int frame_count = frames_until_col;
+    [...] (common A* algorithm)
+    if(tile->iswalkable && CheckCollisionsOnFrame(unit->predicted_positions, frame_count){  // check if there are collisions
+        [...]   //  if there are collisions in that position and frame, discard the node as if was non-walkable.
+    }
+    [...]
+    frame_count += (distanceManhattan(tile, closed.last) / unit->speed);    
+    closed.Pushback(tile);  // On every closed tile, we add to frame count the time needed  by the unit from the last tile to current
+    [...]
+    for(List_item next_wp_tile = unit->Waypoints.first->first; next_wp_tile; next_wp_tile = iterator->next)
+        if(next_wp_tile == tile){     // We check for rejoin the previous path, so we end pathfinding when we reach a closed
+          Path->Flip();               // tile in the previous path.
+          return Path;
+          }
+}
 
 
+OnCollision (collider c1, collider c2, int frames_until_col){        // Called from the last predicted position
+    [...]
+    Unit* unit = c1->GetUnit();
+    new_path = App->pathfinding->Col_Pathfinder(unit, frames_until_col, unit->Waypoints.first->last);   // we find the path that circles the obstacle
+    unit->Waypoints.first->TrimNodes(new_path.Count())    // Trim the nodes of the previous path that would cause collisions
+    unit->Waypoints.Pushfront(new_path)    // and attach the circling path to the previous one.
 
-
-
+```
 
 
 ### Markdown
