@@ -261,7 +261,7 @@ _The immediate function of the commander is to call only once functions whose re
  
  - A group can hold, but not necessarily, a formation. Grouped formations coordinate with High-level pathfinding (Waypoints), while formations use Low-level (pred.positions).
  
-_When grouped, units will only try to move close to each other. When formed, units must maintain a certain positions inside the group. Formations will be reviewed later on this article._
+_When grouped, units will only try to move close to each other. When formed, units must maintain certain positions inside the group. Formations will be reviewed later on this article._
  
 ## Group class
 
@@ -322,3 +322,13 @@ Our first step before start travelling towards our destination is to build the f
 In order to do so, first we calculate the center of the smallest quadrilateral containing all group units current position. If that center is near colliders, we will displace it as less as possible until there's enough space. Then, we need a sorting algorithm to order units in function to their proximity to the center.
 
 The nearest units will position in the nearest available space of the center they can fit on, taking in account the formation specifications. The commander will take the central position. If there are several units that could be chosen as the commander, we will select the nearest to the center.
+
+### Moving the formation
+
+Once the formation has been built, the next step is update positions so units start advancing. First, we call pathfinder from commander and stablish a route for him to follow. The pathfinding will be called keeping in mind the whole formation size. Then commander will perform the first movement towards the first waypoint.
+
+To keep the formation advancing, we must replicate the same movement in every unit on the formation. All of this will be recorded in each unit predicted positions queue. The result is the whole formation moving at the same time, without losing formation nor colliding between units.
+
+We must mind, however, that formations have directions. If we are forming a vertical line moving from left to right, and turn to face upwards, we expect the whole formation to turn. If not, what before was a line now is a column. The simplest way to achieve this is to stop and build formation again after every waypoint.
+
+However, that solution would be very slow in game time, as well as cause unpredicted behaviour when used in narrow spaces. We encourage the reader to come up with a system fitting for their game and code it themselves, as final exercise for this tutorial.
