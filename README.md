@@ -176,32 +176,31 @@ Hard push works more like pathfinding than like pushing. The idea is to figure o
 bool HardPush(fPoint direction){
     Collider* c1 = NULL; 
     bool ret = false;
-    fPoint dir_array[3];
-    dir_array[0] = {direction.y, - direction.x};      // to left
-    dir_array[1] = {direction.x, - direction.y};      // to right
-    dir_array[2] = {- direction.y, - direction.x};    // behind
+    list<fPoint> dir_list;
+    dir_list.add({direction.y, - direction.x});      // to left
+    dir_list.add({direction.x, - direction.y});      // to right
+    dir_list.add({- direction.y, - direction.x});    // behind
     
-    for(int i = 0; i < 3; i++){
-       if(c1 = CheckCollisions(position + dir_array[i] * speed)){
+    for(list_item* item = dir_lisr.start; item; item = item->next){
+       if(c1 = CheckCollisions(position + (item->data * speed)){
            if(c1->IsUnit)
-               ret = c1->HardPush(dir_array[i]);
+               ret = c1->HardPush(item->data);
        }
        else
             ret = true;
        
        if(ret){
-           Waypoints.add(position + (to_left * speed));  
-           Waypoints.add(position);
-           return true;
+           Waypoints.Pushback(position + (item->data * speed));  
+           Waypoints.Pushback(position);
+           break;
        }
     }
-    
+    dir_list.Clear();
     return ret;
 }
-
 ```
 
-Hard push is significantly more more complex than basic pushing. The first notorious change would be that is a recursive function, as it needs to keep pushing units of a possible cluster away until one of them finds an empty space. 
+Hard push is significantly more complex than basic pushing. The first notorious change would be that is a recursive function, as it needs to keep pushing units of a possible cluster away until one of them finds an empty space. 
 
 It does also work with waypoints instead of pred.pos. This happens because a hard-pushing movement can require very close coordination of troops, which if managed through pred.pos. would need a lot of recalculations on each update. By stacking waypoints we just record the moves a troop has done to let others pass, so they are travelled inversely when finished.
 
@@ -240,3 +239,72 @@ We will classify oncoming collisions as:
 
 This classification will appear in the code as flags to trigger unit movements and avoid two units solving the same the collision.
 
+# Group movement
+
+Up to now, although we have used several units in our examples, the code was treating it as unit-to-unit collisions. This means, as if every unit had been assigned an order individually. However, the most usual way to manage units in RTS games is in groups of certain units, which are expected to act cohesively and coordinated.
+
+To manage this higher step of complexity, the first we need to do is to code a Group class. This class will override unit controls and manage positions, orientations and collisions. But before, let's keep in mind some considerations.
+
+### Group characteristics
+
+ - Units inside a group will only collide against themselves with hard colliders. Soft collider calls will be ignored.
+ 
+_If troops are forming tightly, we should receive hundreds of calls in few seconds just because the group is turning or any other controlled action. Group class manages this, so collision module shouldn't do anything._
+ 
+  - Units inside a group move at the same speed, take (almost) the same path and arrive at the same time.
+  
+_If we not follow those rules, the purpose of a group (form a solid block of units) is lost, as units just scramble themselves around the map taking each it's own way._
+
+ - All groups will feature a commander, which will act as the "representative" of the group.
+ 
+_The immediate function of the commander is to call only once functions whose result can be extrapolated to whole group, as pathfinding. However, later we will see more uses for this element._
+ 
+ - A group can hold, but not necessarily, a formation. Grouped formations coordinate with High-level pathfinding (Waypoints), while formations use Low-level (pred.positions).
+ 
+_When grouped, units will only try to move close to each other. When formed, units must maintain a certain positions inside the group. Formations will be reviewed later on this article._
+ 
+## Group class
+
+```
+class Group{
+public:
+    int type;
+    int state;
+    fPoint center;
+    float max_speed;
+    Unit* commander;
+    int num_of_units;
+    list<fPoint> unit_positions;
+    list<fPoint> expected_positions;
+
+public:
+    void Update();
+    [...]
+}
+```
+POSITONS SHOULD WAYPOINTS
+
+To manage it's units, Group class uses the commander as reference. It will only trace the commander's movement and order the remaining units to adjust their path to try to get closer to him. This is performed via waypoints and speed adjustment. 
+
+ - Waypoints:
+ 
+Once a group have been selected and asked to move somewhere, the commander will execute pathfinding method with the specifications of the biggest unit in the group. Then, on each waypoint of it's path, it will locate waypoints for each unit on the nearest possible tile of the their own waypoint. 
+
+This system could rise some kind of odd behaviour, yet practical, if a commander waypoint is surrounded by several unavoidable colliders. This would cause unit's waypoints to be created quite far from the commander's. However, if we put this situation in perspective, these units will need to travel through that narrow space to reach the next waypoint, so having them properly spaced from each other will increase the fluidity of the movement. 
+
+To keep collisions at a minimum, the method looking for available tiles for troops waypoints should always check tiles in the same order, as well as when assigning them to troops. 
+
+ - Speed adjustments:
+ 
+Waypoints are only half of the system, though. Now, our units would follow similar paths, but cavalry would reach the goal much faster than siege units, which are quite slower. A way to solve this issue is to adjust some units speed on the go. This adjustment shouldn't be applied directly to the unit base speed but multiplying the value for some fixed intervals.
+
+The commander will work as reference for this adjustments. Although more compex calculations can be developed, a simple and effective way to manage this system is:
+ 
+ 1. If a unit has less waypoints left in it's path than the commander, it should slow down based in the distance from it's current waypoint and commander's.
+ 2. If a unit has the same waypoints left than commander's, but it's nearer to the current waypoint than commander, it should slow down based in the distance between commander and waypoint and unit and waypoint.
+ 3. If a unit has the same waypoints left than commander's and more or less the same distance to waypoint, it moves at group speed.
+ 4. [...] / 5. [...] 
+ 
+4 and 5 would be the same as 2 and 1 restpectively, but inversed so units move faster when farther from waypoint.
+
+This system should have implemented caps in max/min speed multiplier value to avoid catapults "sprinting" to reach the group, as well as some margin to trigger speed modifiers to avoid new speeds being calculated on every frame to solve slight deviations.
