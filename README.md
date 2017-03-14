@@ -162,29 +162,76 @@ We have been describing the previous situation as Unit A moving away from it's p
 
 The previous function can be used as well for this: Each idle unit should begin a path with it's current position as single waypoint. The method will try to keep the unit on it's position, but as it's colliding, it will then choose any empty tile around it to move away and let Unit A pass. As the Unit A has left, the collision disappears and the idle unit goes back to it's position.
 
-This can and should trigger recursive callings to the function in nearby units affected by the movement, but as long as there is some empty space around the cluster, it should work properly. 
+However, pushing units has limitations. A unit will only let be pushed if there at least one empty space around it. If it's surrounded by other colliders or unwalkable tiles, let's say a surrounding circle of troops, this method could not work as expected.
+
+### Hard Push
+
+Let's imagine a situation on where our map features a narrow canyon where there's only space for a unit to move left or right. Units A, B and C are stationed in the canyon, serving as guards, forming a line. Our hero H wants to cross the canyon, and the only way to do so would be if C moves to the other end and lets B and A get out of the way.
+
+However, the first collision would be with A, which can't be pushed away as it has B right behind. This will just stop H and it would never reach the other side. To fix this situations, we must code a "Hard Push" method.
+
+Hard push works more like pathfinding than like pushing. The idea is to figure out and store which are the minimum set of colindant units which must move so another unit can travel across them.  
+
+```
+bool HardPush(fPoint direction){
+    Collider* c1 = NULL; 
+    bool ret = false;
+    fPoint dir_array[3];
+    dir_array[0] = {direction.y, - direction.x};      // to left
+    dir_array[1] = {direction.x, - direction.y};      // to right
+    dir_array[2] = {- direction.y, - direction.x};    // behind
+    
+    for(int i = 0; i < 3; i++){
+       if(c1 = CheckCollisions(position + dir_array[i] * speed)){
+           if(c1->IsUnit)
+               ret = c1->HardPush(dir_array[i]);
+       }
+       else
+            ret = true;
+       
+       if(ret){
+           Waypoints.add(position + (to_left * speed));  
+           Waypoints.add(position);
+           return true;
+       }
+    }
+    
+    return ret;
+}
+
+```
+
+Hard push is significantly more more complex than basic pushing. The first notorious change would be that is a recursive function, as it needs to keep pushing units of a possible cluster away until one of them finds an empty space. 
+
+It does also work with waypoints instead of pred.pos. This happens because a hard-pushing movement can require very close coordination of troops, which if managed through pred.pos. would need a lot of recalculations on each update. By stacking waypoints we just record the moves a troop has done to let others pass, so they are travelled inversely when finished.
+
+NEEDS OPTIMIZATION (SHORTEST PATH, DIAGONAL MOVEMENT)
 
 ## Priorities and collision solving
 
 Lets return to the example where Unit A and the cluster are moving. What would happen if some troop of the cluster, let's call it unit B, tried to avoid unit A simultaneously? It could result on it, for example, turning right to let it pass, so that would make units C, D, and E, which are right behind B, to predict a collision between them.
 
-That would create a chain effect where all units will behave crazy trying to dodge each other and performing tons of unnecessary computations. To avoid this, we must use unit prioritizing.
+That would create a chain effect where all units will behave crazy trying to dodge each other and performing tons of unnecessary computations. To avoid this, we must use unit prioritizing and collisions states. With those tools implemented, once a unit has solved a collision, nearby units will ignore it.
 
 This means, units will manage collisions in base of the state and priority of each one. Priority is given by the coder and could be derived from any mechanism (size, power, speed...).
 
 Then, we can group the possibles state values in:
 
  - Unit A is moving / Unit B is idle:
-     1. Higher priority unit pushes lower out of the way.
-     2. If the pushing can't be done, higher priority unit tries to avoid lower.
-     3. If none can be done, stop.
+     1. Higher priority unit pushes lower.
+     2. If it can't be done, higher priority unit tries to avoid lower.
+     3. If it can't be done, higher priority unit hard pushes lower.
+     4. If none can be done, stop.
+     
   - Unit A is moving / Unit B is moving:
      1. Lower priority unit tries to avoid higher.
      2. If it can't be done, higher tries to avoid lower.
-     3. If it can't be done, lower stops, higher pushes it out of the way.
-     4. If none can be done, both stop.
+     3. If it can't be done, lower stops, higher pushes it.
+     4. If it can't be done, higher hard pushes it.
+     5. If none can be done, both stop.
       
-     
+This flowchart guarantees that all possible solutions are tried before cancelling the move, ordered so to keep the unit travel time short and CPU usage low.
+
 We will classify oncoming collisions as:
 
  - Unsolved: the collision have been noticed, so the code computes the logic decisions to manage it.
@@ -192,17 +239,4 @@ We will classify oncoming collisions as:
  - Solved: the collision has not happened. The corresponding unit return to it's previous position.
 
 This classification will appear in the code as flags to trigger unit movements and avoid two units solving the same the collision.
-
-### Hard Push
-
-Let's imagine a situation on where our map features a narrow canyon where there's only space for a unit to move left or right. Units A, B and C are stationed in the canyon, serving as guards, forming a line. Our hero H wants to cross the canyon, and the only way to do it so would be if C moves until the other end and lets B and A get out of the way.
-
-However, the first collision would be with A, which can be pushed away as it has B right behind. This will just stop H and it would never reach the other side. To fix this situations, we must code a "Hard Push" method.
-
-Hard push works more like pathfinding than like pushing. The idea is to figure out and store which are the minimum set of colindant units which must move so another unit can travel across them.  
-
-```
-HardPush()
-
-```
 
