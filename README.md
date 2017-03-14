@@ -1,3 +1,5 @@
+# Introduction
+
 ## The problem
 
 When in a videogame a single unit must travel from point A to point B, we should only need a pathfinding algorithm (A\*, djikstra) properly coded to obtain a satisfactory result. That solution is useful, but limited. 
@@ -63,7 +65,7 @@ _Why circles? They offer a smooth experience when used as collider, as well as n
  
 _This means, the collider module update should take in consideration not the current position but where the unit is going to be after applying it's current speed. That allows us to prevent collision before happening and avoid game breaking situations._
 
-### Base pathfinding code
+## Base pathfinding code
 
 So, after introducing the previous considerations, our unit state machine when moving should be something like:
 ```
@@ -99,6 +101,8 @@ case DEST_REACHED:
 ```
 
 This is far from being a solid solution, but is intuitive and simple enough so it can be understood easily the changes we are going to apply. Right now, our units just stop when they find something in their way. Obviously, this is not what we want them to do, but for now let's just keep it like that for simplicity.
+
+# Managing collisions
 
 ## Position and collision prediction
 
@@ -152,15 +156,35 @@ As precisely predicted positions define how unit position is going to be updated
 
 This function also manages that units don't move away from the original route, as it will always be chosen the nearest tile to the path. The nearest tile can be the current one depending on the obstacle's nature, making the unit wait for a certain collider to move away.
 
+### "Pushing"
+
+We have been describing the previous situation as Unit A moving away from it's path so it does not collide. However, if instead of a moving cluster we had idle troops, it would more time efficient for Unit A that idle troops moved away to let it pass. This action will be called "pushing" the idle unit from now on.
+
+The previous function can be used as well for this: Each idle unit should begin a path with it's current position as single waypoint. The method will try to keep the unit on it's position, but as it's colliding, it will then choose any empty tile around it to move away and let Unit A pass. As the Unit A has left, the collision disappears and the idle unit goes back to it's position.
+
+This can and should trigger recursive callings to the function in nearby units affected by the movement, but as long as there is some empty space around the cluster, it should work properly. 
 
 ## Priorities and collision solving
 
-The previous implementation in the code seem effective, but what would happen if some troop of the cluster, let's call it unit B, tried to avoid unit A simultaneously? It could result on it, for example, turning right to let it pass, so that would make units C, D, and E, which are right behind B, to predict a collision between them.
+Lets return to the example where Unit A and the cluster are moving. What would happen if some troop of the cluster, let's call it unit B, tried to avoid unit A simultaneously? It could result on it, for example, turning right to let it pass, so that would make units C, D, and E, which are right behind B, to predict a collision between them.
 
 That would create a chain effect where all units will behave crazy trying to dodge each other and performing tons of unnecessary computations. To avoid this, we must use unit prioritizing.
 
 This means, units will manage collisions in base of the state and priority of each one. Priority is given by the coder and could be derived from any mechanism (size, power, speed...).
 
+Then, we can group the possibles state values in:
+
+ - Unit A is moving / Unit B is idle:
+     1. Higher priority unit pushes lower out of the way.
+     2. If the pushing can't be done, higher priority unit tries to avoid lower.
+     3. If none can be done, stop.
+  - Unit A is moving / Unit B is moving:
+     1. Lower priority unit tries to avoid higher.
+     2. If it can't be done, higher tries to avoid lower.
+     3. If it can't be done, lower stops, higher pushes it out of the way.
+     4. If none can be done, both stop.
+      
+     
 We will classify oncoming collisions as:
 
  - Unsolved: the collision have been noticed, so the code computes the logic decisions to manage it.
@@ -169,61 +193,16 @@ We will classify oncoming collisions as:
 
 This classification will appear in the code as flags to trigger unit movements and avoid two units solving the same the collision.
 
-### PushUnit()
+### Hard Push
 
-The adapted A\* algortithm we have elaborated is quite resilient, but very resource-expensive. In the example of the unit and the cluster, even by having the code work properly and obtain the expected result, we would have called the pathfinder method dozens of times.
+Let's imagine a situation on where our map features a narrow canyon where there's only space for a unit to move left or right. Units A, B and C are stationed in the canyon, serving as guards, forming a line. Our hero H wants to cross the canyon, and the only way to do it so would be if C moves until the other end and lets B and A get out of the way.
 
-We must keep in mind that up to now we have just reviewed units acting individually, not as a group, which has some specific features that we will see later. Thus, is not so likely to have that many units colliding if each one of them have been given the order one at a time.
+However, the first collision would be with A, which can be pushed away as it has B right behind. This will just stop H and it would never reach the other side. To fix this situations, we must code a "Hard Push" method.
 
-Therefore, although we keep needing the pathfinder in some cases, for most situations we can use a simpler and cheaper method: PushUnit(). This recursive method will only be called if one of the units is idle when colliding.
-
+Hard push works more like pathfinding than like pushing. The idea is to figure out and store which are the minimum set of colindant units which must move so another unit can travel across them.  
 
 ```
-PushUnit(Unit* unit_pushed, int start_frame, int end_frame){
-    bool ret = false; 
-    Collider* c2 = NULL;
-    if(c2 = CheckCollisionOnFrame(unit_pushed->position.y + this->collider->radius, unit_pushed->position.x), start_frame){   // "this" is the pushing unit 
-        if(c2->IsUnit())
-            unit_pushed->PushUnit(c2->GetUnit(), start_frame, end_frame);
-        else
-            return ret;
-    }   
-    unit_pushed->predicted_positions.InsertAt(start_frame - current_frame, Pred_Pos(unit_pushed->position.y + this->collider->radius, unit_pushed->position.x)
-}
-```
-Then, we can group the possibles state values in:
+HardPush()
 
- - Unit A is moving / Unit B is idle:
-    -
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rodrigodpl/Group-movement-tutorial/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
