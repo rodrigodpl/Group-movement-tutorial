@@ -305,6 +305,20 @@ The commander will work as reference for this adjustments. Although more compex 
  3. If a unit has the same waypoints left than commander's and more or less the same distance to waypoint, it moves at group speed.
  4. [...] / 5. [...] 
  
-4 and 5 would be the same as 2 and 1 restpectively, but inversed so units move faster when farther from waypoint.
+4 and 5 would be the same as 2 and 1 respectively, but inversed so units move faster when farther from waypoint.
 
-This system should have implemented caps in max/min speed multiplier value to avoid catapults "sprinting" to reach the group, as well as some margin to trigger speed modifiers to avoid new speeds being calculated on every frame to solve slight deviations.
+This system should have implemented caps in max/min speed multiplier value to avoid catapults "sprinting" to reach the group, as well as some margin before triggering speed modifiers to avoid new velocities being calculated on every frame to solve slight deviations. 
+
+## Formations
+
+Formations represent units trying to maintain a specific position in relation to the other units in the group through all path. Although formations are built inside group environment as a state of it, they behave differently. In a group, units try to keep close to the commander creating kind of a cluster. In a formation, units must in a certain position at a certain time.
+
+It's obvious that the level of precision required increases dramatically if formations are to be kept through a path. Thus, the High-level pathfinding system used for groups is to simple for formations. Instead, we are going to code a similar method which works with predicted positions.
+
+### Building the formation
+
+Our first step before start travelling towards our destination is to build the formation. If a formation can move without being formed, it does not have any use at all. In order to minimize collisions and time spent in this step, we are going to use a central point approach.
+
+In order to do so, first we calculate the center of the smallest quadrilateral containing all group units current position. If that center is near colliders, we will displace it as less as possible until there's enough space. Then, we need a sorting algorithm to order units in function to their proximity to the center.
+
+The nearest units will position in the nearest available space of the center they can fit on, taking in account the formation specifications. The commander will take the central position. If there are several units that could be chosen as the commander, we will select the nearest to the center.
