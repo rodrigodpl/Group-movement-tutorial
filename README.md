@@ -331,4 +331,42 @@ To keep the formation advancing, we must replicate the same movement in every un
 
 We must mind, however, that formations have directions. If we are forming a vertical line moving from left to right, and turn to face upwards, we expect the whole formation to turn. If not, what before was a line now is a column. The simplest way to achieve this is to stop and build formation again after every waypoint.
 
-However, that solution would be very slow in game time, as well as cause unpredicted behaviour when used in narrow spaces. We encourage the reader to come up with a system fitting for their game and code it themselves, as final exercise for this tutorial.
+However, that solution could be very slow in game time, as well as cause unpredicted behaviour when used in narrow spaces. We encourage the reader to come up with a system fitting for their game and code it themselves.
+
+# Exercises 
+
+Next, we will see some simple exercises to start putting the basics of this tutorial in practice. As we have covered lots of information and possible implementations, we will reduce this exercises in creating a base to start building your own code over it.
+
+First, let's see some differences between high-level pathfinding and low-level. In order to do so, we are going to develop some simple methods to avoid unit overlapping.
+
+To do the exercises, download the code attached in this page and use some code tool like Visual Studio. 
+
+Executable controls:
+ - Esc: Quit
+ - arrow keys: move camera
+ - left_click: select
+ - drag: multiselect
+ - right_click : move
+ - F1: debug
+
+
+### TODO 1
+
+First, we need to start checking not only the walkability of the map but if there's any unit blocking our path.
+Use the function IsOcuppied() to check if there are any colliders in our way.
+
+### TODO 2
+
+Once we have found a tile we cannot go through, we need to find some other way to reach our destination. Calling again the pathfinder would be very slow, so let's develop a quick function the find the nearest available tile.
+
+### TODO 3 
+
+Squared colliders are more commonly used when starting to code, but circular colliders can provide better functionality. Let's figure out the equation to know if two circular colliders intersect. 
+
+Use F1 on the executable to know if a collider is being called.
+
+### TODO 4
+
+Now that we feature two colliders on each unit, we need to avoid them to collide each other. Let's modify Collider class so it's able to remember and recall the entity which belongs it so we can check this easily.
+
+Then, we are going to avoid that two colliders of the same entity collide among them.
