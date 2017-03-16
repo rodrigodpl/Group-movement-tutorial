@@ -51,6 +51,8 @@ Although there are many games which don't differentiate between these two, it's 
 
 To provide kind of a reference, we could consider high-level every time the path to be taken is long enough to not fit inside the screen.
 
+![Imgur](http://i.imgur.com/2uxUVeS.jpg)
+
 ### Other considerations
 
  - Tutorial will be set in a 2D environment.
@@ -116,6 +118,8 @@ This queue will be coded as a rolling list, this means, once the first call is m
 
 Each node of the queue should contain the position and direction of the troop in that moment. Also, it should have an assigned collider so we can predict collisions in future updates.
 
+![Imgur](http://i.imgur.com/CehsCMI.jpg)
+
 ### Fixed time step and interpolation
 
 If we need to simulate a series of positions in one single call, we are going to need fixed time step for those calculations. However, even by carefully choosing the interval this could lead to code issues further on.
@@ -123,6 +127,8 @@ If we need to simulate a series of positions in one single call, we are going to
 A way to avoid this is to create an interpolation system that adjusts the series by interpolating with the real current frame time. As we have direction and fixed time interval values, this shouldn't be hard.
 
 The interpolation system can be used to avoid as well the situation where a unit "jumps" over a obstacle because the update has moved the unit to the other side in a single frame without triggering the collider. By interpolating enough positions we can cover the whole space between two updates so there's always a collider in the path.
+
+![Imgur](http://i.imgur.com/A7eF2ut.jpg)
 
 ## Coordinating units
 
@@ -152,7 +158,11 @@ fPoint GetNearestAdj(){
 ```
 This is a kind of "pathfinding in miniature". It looks for the nearest tile to their next waypoint that will not trigger a collision, including the current one, and returns the position the unit would be if it moved in the tile direction. This position should be stored in the unit's predicted positions.
 
+![Imgur](http://i.imgur.com/OegeqAS.jpg)
+
 As precisely predicted positions define how unit position is going to be updated, by calling this method when a collision is found we avoid it right then, while our unit keeps moving in almost the same direction towards it's next waypoint. If in the next update the unit keeps finding an obstacle, it will try to circle it as well and so on.
+
+![Imgur](http://i.imgur.com/LauOAtj.jpg)
 
 This function also manages that units don't move away from the original route, as it will always be chosen the nearest tile to the path. The nearest tile can be the current one depending on the obstacle's nature, making the unit wait for a certain collider to move away.
 
@@ -169,6 +179,8 @@ However, pushing units has limitations. A unit will only let be pushed if there 
 Let's imagine a situation on where our map features a narrow canyon where there's only space for a unit to move left or right. Units A, B and C are stationed in the canyon, serving as guards, forming a line. Our hero H wants to cross the canyon, and the only way to do so would be if C moves to the other end and lets B and A get out of the way.
 
 However, the first collision would be with A, which can't be pushed away as it has B right behind. This will just stop H and it would never reach the other side. To fix this situations, we must code a "Hard Push" method.
+
+![Imgur](http://i.imgur.com/Hs0Rk2Z.jpg)
 
 Hard push works more like pathfinding than like pushing. The idea is to figure out and store which are the minimum set of colindant units which must move so another unit can travel across them.  
 
@@ -292,6 +304,8 @@ Once a group have been selected and asked to move somewhere, the commander will 
 
 This system could rise some kind of odd behaviour, yet practical, if a commander waypoint is surrounded by several unavoidable colliders. This would cause unit's waypoints to be created quite far from the commander's. However, if we put this situation in perspective, these units will need to travel through that narrow space to reach the next waypoint, so having them properly spaced from each other will increase the fluidity of the movement. 
 
+![Imgur](http://i.imgur.com/XdPMCAr.jpg)
+
 To keep collisions at a minimum, the method looking for available tiles for troops waypoints should always check tiles in the same order, as well as when assigning them to troops. 
 
  - Speed adjustments:
@@ -322,6 +336,8 @@ Our first step before start travelling towards our destination is to build the f
 In order to do so, first we calculate the center of the smallest quadrilateral containing all group units current position. If that center is near colliders, we will displace it as less as possible until there's enough space. Then, we need a sorting algorithm to order units in function to their proximity to the center.
 
 The nearest units will position in the nearest available space of the center they can fit on, taking in account the formation specifications. The commander will take the central position. If there are several units that could be chosen as the commander, we will select the nearest to the center.
+
+![Imgur](http://i.imgur.com/ofoXxjJ.jpg)
 
 ### Moving the formation
 
@@ -375,8 +391,6 @@ Then, we are going to avoid that two colliders of the same entity collide among 
 
 www.gamasutra.com/view/feature/131720/coordinated_unit_movement.php
 
-
 http://sander.landofsand.com/publications/CIG08Heijden.pdf
-
 
 http://apexgametools.com/learn/apex-utility-ai-documentation/real-time-strategy-demo/apex-utility-ai-rts-demo-06-group-movement/
