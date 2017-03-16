@@ -370,3 +370,13 @@ Use F1 on the executable to know if a collider is being called.
 Now that we feature two colliders on each unit, we need to avoid them to collide each other. Let's modify Collider class so it's able to remember and recall the entity which belongs it so we can check this easily.
 
 Then, we are going to avoid that two colliders of the same entity collide among them.
+
+# Useful links
+
+www.gamasutra.com/view/feature/131720/coordinated_unit_movement.php
+
+
+http://sander.landofsand.com/publications/CIG08Heijden.pdf
+
+
+http://apexgametools.com/learn/apex-utility-ai-documentation/real-time-strategy-demo/apex-utility-ai-rts-demo-06-group-movement/
