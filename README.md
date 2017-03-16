@@ -387,6 +387,10 @@ Now that we feature two colliders on each unit, we need to avoid them to collide
 
 Then, we are going to avoid that two colliders of the same entity collide among them.
 
+### Github link
+
+https://github.com/rodrigodpl/Group-movement-tutorial
+
 # Useful links
 
 www.gamasutra.com/view/feature/131720/coordinated_unit_movement.php
