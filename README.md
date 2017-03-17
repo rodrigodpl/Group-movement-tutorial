@@ -369,11 +369,11 @@ Executable controls:
 ### TODO 1
 
 First, we need to start checking not only the walkability of the map but if there's any unit blocking our path.
-Use the function IsOcuppied() to check if there are any colliders in our way.
+Code the function IsOcuppied() to check if there are any colliders in our way.
 
 ### TODO 2
 
-Once we have found a tile we cannot go through, we need to find some other way to reach our destination. Calling again the pathfinder would be very slow, so let's develop a quick function the find the nearest available tile.
+Once we have found a tile we cannot go through, we need to find some other way to reach our destination. Calling again the pathfinder would be very slow, so let's use a quick function the find the nearest available tile. The function is half done, you just have to finish it.
 
 ### TODO 3 
 
@@ -383,9 +383,7 @@ Use F1 on the executable to know if a collider is being called.
 
 ### TODO 4
 
-Now that we feature two colliders on each unit, we need to avoid them to collide each other. Let's modify Collider class so it's able to remember and recall the entity which belongs it so we can check this easily.
-
-Then, we are going to avoid that two colliders of the same entity collide among them.
+Use your freshly finished FindNearestAvailable() to provide an available tile for the colliding unit. Remember to pop first the front node if the path is not empty
 
 ### Github link
 
