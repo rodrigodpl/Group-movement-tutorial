@@ -1,0 +1,1326 @@
+<GameData>
+	<Units>
+	
+<!-- FREE_MEN_UNITS -->
+		<Unit>
+      <Info>
+        <Name value = "ELVEN_LONGBLADE"/>
+        <ID value = "0"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/ElvenLongblade/ElvenLongbladeIdle.png"/>
+				<Move value="textures/Units/ElvenLongblade/ElvenLongbladeMove.png"/>
+				<Attack value="textures/Units/ElvenLongblade/ElvenLongbladeAttack.png"/>
+				<Die value="textures/Units/ElvenLongblade/ElvenLongbladeDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="45"/>
+				<Attack value="4"/>
+				<AttackSpeed value="2.2"/>
+				<Defense value="0"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1.1"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="43"/>
+					<Height value="49"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="51"/>
+					<Height value="51"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="67"/>
+					<Height value="61"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="70"/>
+					<Height value="54"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "DWARVEN_MAULER"/>
+        <ID value = "1"/>
+      </Info>
+      <Textures>
+				<Idle value="textures/Units/DwarvenMauler/DwarvenMaulerIdle.png"/>
+				<Move value="textures/Units/DwarvenMauler/DwarvenMaulerMove.png"/>
+				<Attack value="textures/Units/DwarvenMauler/DwarvenMaulerAttack.png"/>
+				<Die value="textures/Units/DwarvenMauler/DwarvenMaulerDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="60"/>
+				<Attack value="8"/>
+				<AttackSpeed value="1.9"/>
+				<Defense value="2"/>
+				<PiercingDamage value="2"/>
+				<MovementSpeed value="0.9"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="61"/>
+					<Height value="40"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="63"/>
+					<Height value="44"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="74"/>
+					<Height value="65"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="77"/>
+					<Height value="60"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "GONDOR_SPEARMAN"/>
+        <ID value = "2"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/"/>
+				<Move value="textures/Units/"/>
+				<Attack value="textures/Units/"/>
+				<Die value="textures/Units/"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="50"/>
+				<Attack value="4"/>
+				<AttackSpeed value="2"/>
+				<Defense value="1"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1"/>
+				<LineOfSight value="4"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "ELVEN_ARCHER"/>
+        <ID value = "3"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/ElvenArcher/ElvenArcherIdle.png"/>
+				<Move value="textures/Units/ElvenArcher/ElvenArcherMove.png"/>
+				<Attack value="textures/Units/ElvenArcher/ElvenArcherAttack.png"/>
+				<Die value="textures/Units/ElvenArcher/ElvenArcherDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="35"/>
+				<Attack value="5"/>
+				<AttackSpeed value="2.2"/>
+				<Defense value="0"/>
+				<PiercingDamage value="1"/>
+				<MovementSpeed value="1.1"/>
+				<LineOfSight value="7"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="56"/>
+					<Height value="49"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="60"/>
+					<Height value="52"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="63"/>
+					<Height value="63"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="78"/>
+					<Height value="58"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "DUNEDAIN_RANGE"/>
+        <ID value = "4"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/DunedainRanger/DunedainRangerIdle.png"/>
+				<Move value="textures/Units/DunedainRanger/DunedainRangerMove.png"/>
+				<Attack value="textures/Units/DunedainRanger/DunedainRangerAttack.png"/>
+				<Die value="textures/Units/DunedainRanger/DunedainRangerDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="50"/>
+				<Attack value="4"/>
+				<AttackSpeed value="2"/>
+				<Defense value="1"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1"/>
+				<LineOfSight value="6"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="9"/>
+					<Width value="59"/>
+					<Height value="55"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="61"/>
+					<Height value="58"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="12"/>
+					<Width value="66"/>
+					<Height value="80"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="93"/>
+					<Height value="79"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "ELVEN_CAVALRYE"/>
+        <ID value = "5"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/ElvenCavalery/elvenCavaleryIdle.png"/>
+				<Move value="textures/Units/ElvenCavalery/elvenCavaleryMove.png"/>
+				<Attack value="textures/Units/ElvenCavalery/elvenCavaleryAttack.png"/>
+				<Die value="textures/Units/ElvenCavalery/elvenCavaleryDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="80"/>
+				<Attack value="4"/>
+				<AttackSpeed value="2.1"/>
+				<Defense value="1"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1.5"/>
+				<LineOfSight value="6"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="98"/>
+					<Height value="94"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="85"/>
+					<Height value="92"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="13"/>
+					<Width value="86"/>
+					<Height value="99"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="112"/>
+					<Height value="98"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "GONDOR_KNIGHT"/>
+        <ID value = "6"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/GondorKnight/GondorKnightIdle.png"/>
+				<Move value="textures/Units/GondorKnight/GondorKnightMove.png"/>
+				<Attack value="textures/Units/GondorKnight/GondorKnightAttack.png"/>
+				<Die value="textures/Units/GondorKnight/GondorKnightDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="100"/>
+				<Attack value="5"/>
+				<AttackSpeed value="2"/>
+				<Defense value="1"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1.5"/>
+				<LineOfSight value="5"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="77"/>
+					<Height value="90"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="77"/>
+					<Height value="91"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="91"/>
+					<Height value="98"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="10"/>
+					<Columns value="5"/>
+					<Width value="232"/>
+					<Height value="127"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "ROHAN_KNIGHT"/>
+        <ID value = "7"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/"/>
+				<Move value="textures/Units/"/>
+				<Attack value="textures/Units/"/>
+				<Die value="textures/Units/"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="150"/>
+				<Attack value="7"/>
+				<AttackSpeed value="1.9"/>
+				<Defense value="2"/>
+				<PiercingDamage value="2"/>
+				<MovementSpeed value="1.3"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "MOUNTED_DUNEDAIN"/>
+        <ID value = "4"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/"/>
+				<Move value="textures/Units/"/>
+				<Attack value="textures/Units/"/>
+				<Die value="textures/Units/"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="120"/>
+				<Attack value="4"/>
+				<AttackSpeed value="2"/>
+				<Defense value="0"/>
+				<PiercingDamage value="3"/>
+				<MovementSpeed value="1.4"/>
+				<LineOfSight value="4"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "SIEGE_TOWER"/>
+        <ID value = "9"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/"/>
+				<Move value="textures/Units/"/>
+				<Attack value="textures/Units/"/>
+				<Die value="textures/Units/"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="300"/>
+				<Attack value="0"/>
+				<AttackSpeed value="0"/>
+				<Defense value="3"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="0.7"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "LIGHT_CATAPULT"/>
+        <ID value = "10"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/"/>
+				<Move value="textures/Units/"/>
+				<Attack value="textures/Units/"/>
+				<Die value="textures/Units/"/>
+			</Textures>
+			<Stats>
+				<Faction value="0"/>
+				<Life value="150"/>
+				<Attack value="6"/>
+				<AttackSpeed value="1.8"/>
+				<Defense value="1"/>
+				<PiercingDamage value="3"/>
+				<MovementSpeed value="0.8"/>
+				<LineOfSight value="6"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value=""/>
+					<Columns value=""/>
+					<Width value=""/>
+					<Height value=""/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+<!-- SAURON_ARMY_UNITS -->
+		<Unit>
+      <Info>
+        <Name value = "GOBLIN_SOLDIER"/>
+        <ID value = "11"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/GoblinSoldier/GoblinSoldierIdle.png"/>
+				<Move value="textures/Units/GoblinSoldier/GoblinSoldierMove.png"/>
+				<Attack value="textures/Units/GoblinSoldier/GoblinSoldierAttack.png"/>
+				<Die value="textures/Units/GoblinSoldier/GoblinSoldierDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="35"/>
+				<Attack value="3"/>
+				<AttackSpeed value="2.1"/>
+				<Defense value="0"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1.1"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="49"/>
+					<Height value="49"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="55"/>
+					<Height value="60"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="77"/>
+					<Height value="80"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="55"/>
+					<Height value="52"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "ORC_SOLDIER"/>
+        <ID value = "12"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/OrcSoldier/OrcSoldierIdle.png"/>
+				<Move value="textures/Units/OrcSoldier/OrcSoldierMove.png"/>
+				<Attack value="textures/Units/OrcSoldier/OrcSoldierAttack.png"/>
+				<Die value="textures/Units/OrcSoldier/OrcSoldierDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="50"/>
+				<Attack value="6"/>
+				<AttackSpeed value="2"/>
+				<Defense value="0"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="49"/>
+					<Height value="77"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="49"/>
+					<Height value="63"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="75"/>
+					<Height value="79"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="76"/>
+					<Height value="69"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "URUK_HAI_SOLDIER"/>
+        <ID value = "13"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/Uruk-haiSoldier/Uruk-haiSoldierIdle.png"/>
+				<Move value="textures/Units/Uruk-haiSoldier/Uruk-haiSoldierMove.png"/>
+				<Attack value="textures/Units/Uruk-haiSoldier/Uruk-haiSoldierAttack.png"/>
+				<Die value="textures/Units/Uruk-haiSoldier/Uruk-haiSoldierDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="75"/>
+				<Attack value="7"/>
+				<AttackSpeed value="2"/>
+				<Defense value="1"/>
+				<PiercingDamage value="2"/>
+				<MovementSpeed value="1"/>
+				<LineOfSight value="4"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="46"/>
+					<Height value="54"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="50"/>
+					<Height value="52"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="69"/>
+					<Height value="61"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="74"/>
+					<Height value="54"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "ORC_ARCHER"/>
+        <ID value = "14"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/OrcArcher/OrcArcherIdle.png"/>
+				<Move value="textures/Units/OrcArcher/OrcArcherMove.png"/>
+				<Attack value="textures/Units/OrcArcher/OrcArcherAttack.png"/>
+				<Die value="textures/Units/OrcArcher/OrcArcherDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="40"/>
+				<Attack value="4"/>
+				<AttackSpeed value="2"/>
+				<Defense value="0"/>
+				<PiercingDamage value="0"/>
+				<MovementSpeed value="1.1"/>
+				<LineOfSight value="6"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="53"/>
+					<Height value="54"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="41"/>
+					<Height value="55"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="56"/>
+					<Height value="60"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="53"/>
+					<Height value="57"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "VENOMOUS_SPIDER"/>
+        <ID value = "15"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/VenomousSpider/VenomousSpiderIdle.png"/>
+				<Move value="textures/Units/VenomousSpider/VenomousSpiderMove.png"/>
+				<Attack value="textures/Units/VenomousSpider/VenomousSpiderAttack.png"/>
+				<Die value="textures/Units/VenomousSpider/VenomousSpiderDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="80"/>
+				<Attack value="4"/>
+				<AttackSpeed value="2.1"/>
+				<Defense value="0"/>
+				<PiercingDamage value="1"/>
+				<MovementSpeed value="1.3"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="12"/>
+					<Width value="91"/>
+					<Height value="75"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="12"/>
+					<Width value="107"/>
+					<Height value="90"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="94"/>
+					<Height value="109"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="11"/>
+					<Width value="91"/>
+					<Height value="95"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "HARADRIM_OLIFANT"/>
+        <ID value = "16"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/HaradrimOlifant/HaradrimOlifantIdle.png"/>
+				<Move value="textures/Units/HaradrimOlifant/HaradrimOlifantMove.png"/>
+				<Attack value="textures/Units/HaradrimOlifant/HaradrimOlifantAttack.png"/>
+				<Die value="textures/Units/HaradrimOlifant/HaradrimOlifantDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="250"/>
+				<Attack value="8"/>
+				<AttackSpeed value="1.9"/>
+				<Defense value="2"/>
+				<PiercingDamage value="3"/>
+				<MovementSpeed value="1.2"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="327"/>
+					<Height value="396"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="8"/>
+					<Width value="334"/>
+					<Height value="403"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="329"/>
+					<Height value="414"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="562"/>
+					<Height value="507"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "NAZGUL"/>
+        <ID value = "17"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/Nazgul/NazgulIdle.png"/>
+				<Move value="textures/Units/Nazgul/NazgulMove.png"/>
+				<Attack value="textures/Units/Nazgul/NazgulAttack.png"/>
+				<Die value="textures/Units/Nazgul/NazgulDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="120"/>
+				<Attack value="6"/>
+				<AttackSpeed value="2.1"/>
+				<Defense value="1"/>
+				<PiercingDamage value="2"/>
+				<MovementSpeed value="1.5"/>
+				<LineOfSight value="4"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="85"/>
+					<Height value="99"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="82"/>
+					<Height value="98"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="85"/>
+					<Height value="99"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="123"/>
+					<Height value="119"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+		
+		<Unit>
+      <Info>
+        <Name value = "TROLL_MAULER"/>
+        <ID value = "18"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Units/troll/trollIdle.png"/>
+				<Move value="textures/Units/troll/trollMove.png"/>
+				<Attack value="textures/Units/troll/trollAttack.png"/>
+				<Die value="textures/Units/troll/trollDie.png"/>
+			</Textures>
+			<Stats>
+				<Faction value="1"/>
+				<Life value="250"/>
+				<Attack value="10"/>
+				<AttackSpeed value="1.5"/>
+				<Defense value="0"/>
+				<PiercingDamage value="2"/>
+				<MovementSpeed value="0.7"/>
+				<LineOfSight value="3"/>
+				<FoodCost value=""/>
+				<GoldCost value=""/>
+				<BuildTime value=""/>
+			</Stats>
+			<Animations>
+				<Idle>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="139"/>
+					<Height value="115"/>
+					<Speed value="0.2f"/>
+				</Idle>
+				<Move>
+					<Rows value="5"/>
+					<Columns value="10"/>
+					<Width value="127"/>
+					<Height value="138"/>
+					<Speed value="0.2f"/>
+				</Move>
+				<Attack>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="187"/>
+					<Height value="162"/>
+					<Speed value="0.2f"/>
+				</Attack>
+				<Die>
+					<Rows value="5"/>
+					<Columns value="15"/>
+					<Width value="162"/>
+					<Height value="140"/>
+					<Speed value="0.2f"/>
+				</Die>
+			</Animations>
+		</Unit>
+	</Units>
+	
+<!-- BUILDINGS -->
+	<Buildings>
+    
+		<Building>
+      <Info>
+        <Name value = "TOWN_CENTER"/>
+        <ID value = "0"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="2400"/>
+				<WoodCost value="275"/>
+				<StoneCost value="100"/>
+				<BuildTime value="150"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "HOUSE"/>
+        <ID value = "1"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="550"/>
+				<WoodCost value="25"/>
+				<StoneCost value="0"/>
+				<BuildTime value="25"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building value="ORC_BARRACKS" BuildingID = "2">
+      <Info>
+        <Name value = "ORC_BARRACKS"/>
+        <ID value = "2"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/barracksOrcs.png"/>
+				<Die value="textures/Buildings/barracksOrcs.png"/>
+			</Textures>
+			<Stats>
+				<Life value="1200"/>
+				<WoodCost value="155"/>
+				<StoneCost value="0"/>
+				<BuildTime value="50"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "ARCHERY_RANGE"/>
+        <ID value = "3"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="1500"/>
+				<WoodCost value="175"/>
+				<StoneCost value="0"/>
+				<BuildTime value="50"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "STABLES"/>
+        <ID value = "4"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="1500"/>
+				<WoodCost value="175"/>
+				<StoneCost value="0"/>
+				<BuildTime value="50"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "SIEGE_WORKSHOP"/>
+        <ID value = "5"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="1800"/>
+				<WoodCost value="200"/>
+				<StoneCost value="0"/>
+				<BuildTime value="40"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "MARKET"/>
+        <ID value = "6"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="1800"/>
+				<WoodCost value="175"/>
+				<StoneCost value="0"/>
+				<BuildTime value="60"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "BLACKSMITH"/>
+        <ID value = "7"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="1800"/>
+				<WoodCost value="150"/>
+				<StoneCost value="0"/>
+				<BuildTime value="40"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "MILL"/>
+        <ID value = "8"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="600"/>
+				<WoodCost value="100"/>
+				<StoneCost value="0"/>
+				<BuildTime value="35"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "WALL"/>
+        <ID value = "9"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value=""/>
+				<WoodCost value=""/>
+				<StoneCost value=""/>
+				<BuildTime value=""/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "GATE"/>
+        <ID value = "10"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value=""/>
+				<WoodCost value=""/>
+				<StoneCost value=""/>
+				<BuildTime value=""/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "OUTPOST"/>
+        <ID value = "11"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="1020"/>
+				<WoodCost value="25"/>
+				<StoneCost value="125"/>
+				<BuildTime value="15"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "MONASTERY"/>
+        <ID value = "12"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="2100"/>
+				<WoodCost value="175"/>
+				<StoneCost value="0"/>
+				<BuildTime value="40"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+		
+		<Building>
+      <Info>
+        <Name value = "CASTLE"/>
+        <ID value = "13"/>
+      </Info>
+			<Textures>
+				<Idle value="textures/Buildings/"/>
+				<Die value="textures/Buildings/"/>
+			</Textures>
+			<Stats>
+				<Life value="4800"/>
+				<WoodCost value="0"/>
+				<StoneCost value="650"/>
+				<BuildTime value="200"/>
+				<CanAttack value="0"/>
+			</Stats>
+		</Building>
+	</Buildings>
+</GameData>
