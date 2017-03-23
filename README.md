@@ -387,12 +387,12 @@ Use your freshly finished FindNearestAvailable() to provide an available tile fo
 
 ### Github link
 
-https://github.com/rodrigodpl/Group-movement-tutorial
+[Github repository](https://github.com/rodrigodpl/Group-movement-tutorial)
 
 # Useful links
 
-www.gamasutra.com/view/feature/131720/coordinated_unit_movement.php
+[gamasutra article](www.gamasutra.com/view/feature/131720/coordinated_unit_movement.php)
 
-http://sander.landofsand.com/publications/CIG08Heijden.pdf
+[document on formations](http://sander.landofsand.com/publications/CIG08Heijden.pdf)
 
-http://apexgametools.com/learn/apex-utility-ai-documentation/real-time-strategy-demo/apex-utility-ai-rts-demo-06-group-movement/
+[explanation and benchmark for group movement](http://apexgametools.com/learn/apex-utility-ai-documentation/real-time-strategy-demo/apex-utility-ai-rts-demo-06-group-movement/)
